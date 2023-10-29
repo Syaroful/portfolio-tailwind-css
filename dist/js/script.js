@@ -1,14 +1,21 @@
 //Navbar-Fixed
-window.addEventListener("scroll", function () {
-  const header = document.querySelector("header");
-  const fixedNav = document.offsetTop;
+window.onscroll = function () {
+  const header = document.querySelector('header');
+  const fixedNav = header.offsetTop;
+  const toTop = document.querySelector('#to-top');
 
-  if (window.pageYOffset > fixedNav) {
+  if (window.scrollY > fixedNav) {
     header.classList.add("navbar-fixed");
+    header.classList.remove("nav-bar");
+    toTop.classList.remove("hidden");
+    toTop.classList.add("flex");
   } else {
     header.classList.remove("navbar-fixed");
+    header.classList.add("nav-bar");
+    toTop.classList.add("hidden");
+    toTop.classList.remove("flex");
   }
-});
+};
 // Hamburger
 
 const hamburger = document.querySelector("#hamburger");
